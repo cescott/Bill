@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class Entity {
 
     protected Vector2 position, velocity, acceleration;
-    protected Texture image, imageWep; //image would be for walking around in main map, imageWep would depend on weapon equipped
+    protected Texture texture; //image would be for walking around in main map, imageWep would depend on weapon equipped
 
     public Entity(Vector2 position){
         this.position = new Vector2(position);
@@ -21,11 +21,7 @@ public abstract class Entity {
     }
 
     public Texture getImage() {
-        return image;
-    }
-
-    public Texture getImageWep() {
-        return imageWep;
+        return texture;
     }
 
     public Vector2 getPosition() {
