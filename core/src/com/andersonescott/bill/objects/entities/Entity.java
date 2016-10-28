@@ -1,4 +1,4 @@
-package com.andersonescott.bill.objects;
+package com.andersonescott.bill.objects.entities;
 
 
 import com.badlogic.gdx.graphics.Texture;

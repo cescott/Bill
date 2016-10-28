@@ -1,6 +1,7 @@
-package com.andersonescott.bill.objects;
+package com.andersonescott.bill.objects.entities;
 
 
+import com.andersonescott.bill.objects.items.Item;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -8,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 
 import java.util.ArrayList;
 
-public class Player extends Entity{
+public class Player extends Entity {
 
     protected int xp, money;
     protected ArrayList<Item> inventory;
