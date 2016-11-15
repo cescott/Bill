@@ -6,6 +6,11 @@ public class GameRenderer {
     protected GameWorld world;
 
     public GameRenderer(GameWorld world){
+
         this.world = world;
+    }
+
+    public void render(float delta){
+
     }
 }

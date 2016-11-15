@@ -7,6 +7,7 @@ public class GameScreen implements Screen{
 
     protected GameRenderer renderer;
     protected GameWorld world;
+    private float runtime;
 
     public GameScreen(){
         world = new GameWorld();
@@ -15,6 +16,9 @@ public class GameScreen implements Screen{
 
     @Override
     public void render(float delta) {
+        runtime+=delta;
+        world.update(delta);
+        renderer.render(runtime);
     }
 
     @Override
