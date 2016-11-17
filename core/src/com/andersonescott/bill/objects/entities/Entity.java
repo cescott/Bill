@@ -1,12 +1,18 @@
 package com.andersonescott.bill.objects.entities;
 
-
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity {
 
     protected Vector2 position, velocity, acceleration;
+
+    protected int health, mana, healthRep, manaRep;
+
+    protected State state;
+
+    public enum State{
+        IDLING, MOVING, FIGHTING
+    }
 
     public Entity(Vector2 position){
         this.position = new Vector2(position);
@@ -41,5 +47,17 @@ public abstract class Entity {
 
     public void setAcceleration(Vector2 acceleration){
         this.acceleration = acceleration;
+    }
+
+    public boolean isIdle(){
+        return state == State.IDLING;
+    }
+
+    public boolean isMoving(){
+        return state == State.MOVING;
+    }
+
+    public boolean isFighting(){
+        return state == State.FIGHTING;
     }
 }

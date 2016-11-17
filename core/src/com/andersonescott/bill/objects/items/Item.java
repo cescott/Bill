@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 public abstract class Item {
 
     protected int value, lvl;
+    protected String name;
 
     protected Texture image;
 
@@ -15,11 +16,11 @@ public abstract class Item {
         COMMON, UNCOMMON, RARE, LEGENDARY
     }
 
-    public Item(int value, int lvl, Rarity rarity, Texture image){
-        this.value = value;
+    public Item(int lvl, Rarity rarity, Texture image){
         this.lvl = lvl;
         this.rarity = rarity;
         this.image = image;
+        value = 0; //add a calculation depending on stats
     }
 
     public Texture getImage() {
