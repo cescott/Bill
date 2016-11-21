@@ -8,10 +8,10 @@ public class Potion extends Item {
 
     protected int effect;
 
-    protected double rarityScale;
+    protected double rarityScale, typeScale;
 
-    public Potion(int value, int lvl, Rarity rarity, Texture image, String type) {
-        super(value, lvl, rarity, image);
+    public Potion(int lvl, Rarity rarity, Texture image, String type) {
+        super(lvl, rarity, image);
 
         if (rarity == Rarity.COMMON) {
             rarityScale = 1;
@@ -26,10 +26,15 @@ public class Potion extends Item {
             rarityScale = 1.6;
         }
 
-        if (type.equals("Health")) {
-            
+        if (type.equals("Health") || type.equals("Mana")) {
+            typeScale = 15*rarityScale*rarityScale;
+        }
+        if (type.equals("Power")) {
+            typeScale = 20;
+        }
+
         name = type + " Potion";
-        effect = (int)(Math.pow(1.1, (lvl-1))*rarityScale*50);
+        effect = (int)(Math.pow(1.1, (lvl-1))*rarityScale*typeScale);
     }
 
 }
