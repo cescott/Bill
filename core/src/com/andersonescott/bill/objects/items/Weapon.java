@@ -7,7 +7,7 @@ public class Weapon extends Item{
 
     protected int dmg, manaRep, critChance, bonusHealth, healthRep, bonusMana;
 
-    public Weapon(int value, int lvl, Rarity rarity, Texture image, int dmg, int manaRep, int critChance, int bonusHealth, int healthRep, int bonusMana){ //add more as they come
+    public Weapon(int lvl, Rarity rarity, Texture image, int dmg, int manaRep, int critChance, int bonusHealth, int healthRep, int bonusMana){ //add more as they come
         super(lvl, rarity, image);
         this.dmg = dmg;
         this.manaRep = manaRep;
