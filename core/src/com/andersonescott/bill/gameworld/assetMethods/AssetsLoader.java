@@ -6,13 +6,15 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetsLoader {
+
+    //player assets
     public static Texture player;
     public static TextureRegion[] idle, moving, fighting;
     public static int idleFrames, movingFrames, fightingFrames;
     public static Animation idling, movement, combat;
 
     public static void load(){
-        //player stuff
+        //---------------PLAYER---------------//
         player = new Texture("bill.png");
         idle = new TextureRegion[idleFrames];
         moving = new TextureRegion[movingFrames];
@@ -34,13 +36,13 @@ public class AssetsLoader {
         movement = new Animation(0.06f, moving);
         combat = new Animation(0.06f, fighting);
 
-        //items
+        //---------------ITEMS---------------//
 
-        //backgrounds
+        //---------------BACKGROUNDS---------------//
 
-        //hud
+        //---------------HUD---------------//
 
-        //enemies
+        //---------------ENEMIES----------------//
     }
     public static void dispose(){
         player.dispose();

@@ -1,11 +1,15 @@
 package com.andersonescott.bill.objects.items;
 
 
+import com.andersonescott.bill.objects.Move;
 import com.badlogic.gdx.graphics.Texture;
+
+import java.util.ArrayList;
 
 public class Weapon extends Item{
 
     protected int dmg, manaRep, critChance, bonusHealth, healthRep, bonusMana;
+    protected ArrayList<Move> moves;
 
     public Weapon(int lvl, Rarity rarity, Texture image, int dmg, int manaRep, int critChance, int bonusHealth, int healthRep, int bonusMana){ //add more as they come
         super(lvl, rarity, image);
@@ -15,7 +19,7 @@ public class Weapon extends Item{
         this.bonusHealth = bonusHealth;
         this.healthRep = healthRep;
         this.bonusMana = bonusMana;
-        name = generateName(bonusHealth, healthRep, bonusMana);
+        init(bonusHealth, healthRep, bonusMana);
     }
 
     public int getDmg() {
@@ -42,8 +46,7 @@ public class Weapon extends Item{
         return bonusMana;
     }
 
-    private String generateName(int bonusHealth, int healthRep, int bonusMana){
-        //TODO add name generator based on these stats and weapon type
-        return "foo";
+    private void init(int bonusHealth, int healthRep, int bonusMana){
+        //TODO add name and move generator based on these stats and weapon type
     }
 }

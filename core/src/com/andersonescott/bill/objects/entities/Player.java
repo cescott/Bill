@@ -17,7 +17,7 @@ public class Player extends Entity {
         health = 50;
         mana = 100;
         healthRep = 0;
-        manaRep = 10; //change these values after testing
+        manaRep = 10; // these values might change after play testing
         xp = 0;
         money = 0; //for now
         inventory = new ArrayList<Item>();

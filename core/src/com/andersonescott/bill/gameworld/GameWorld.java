@@ -8,16 +8,33 @@ import java.util.ArrayList;
 
 public class GameWorld {
 
-    public ArrayList<Entity> entities;
-    public Player player;
+    protected ArrayList<Entity> entities;
+    protected Player player;
+    protected GameState gameState;
 
     public enum GameState{
-        PAUSED, RUNNING  //add more as needed
+        READY, PAUSED, RUNNING, COMBAT  //add more as needed
     }
 
     public GameWorld(){
         entities = new ArrayList<Entity>();
+        gameState = GameState.READY;
+    }
 
+    public boolean isReady(){
+        return gameState == GameState.READY;
+    }
+
+    public boolean isPaused(){
+        return gameState == GameState.PAUSED;
+    }
+
+    public boolean isRunning(){
+        return gameState == GameState.RUNNING;
+    }
+
+    public boolean isCombat(){
+        return gameState == GameState.COMBAT;
     }
 
     public void update(float delta){
