@@ -129,7 +129,7 @@ public class WeaponFactory {
         String effect = effects[(int)(Math.random()*4)];
 
         if (effect.equals("Power")) {
-            
+
 
         return new Weapon(level, rarity, image, );
     }
