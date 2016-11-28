@@ -44,4 +44,12 @@ public class Enemy extends Entity{
 
         }
     }
+    @Override
+    public void die(){
+        super.die();
+        if (Math.random()>= .8){ //20% chance of dropping weapon
+            //drop weapon
+        }
+        //drop gold based on a function dependent on lvl
+    }
 }

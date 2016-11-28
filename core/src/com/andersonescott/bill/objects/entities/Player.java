@@ -23,4 +23,10 @@ public class Player extends Entity {
         inventory = new ArrayList<Item>();
     }
 
+    @Override
+    public void die(){
+        super.die();
+        money = (int)(money*.8);
+    }
+
 }

@@ -8,6 +8,8 @@ public abstract class Entity {
 
     protected int health, mana, healthRep, manaRep;
 
+    protected boolean alive;
+
     protected State state;
 
     public enum State{
@@ -18,6 +20,7 @@ public abstract class Entity {
         this.position = new Vector2(position);
         velocity = new Vector2();
         acceleration = new Vector2();
+        alive = true;
     }
 
     public void update(float delta){
@@ -35,7 +38,7 @@ public abstract class Entity {
     }
 
     public void die(){
-
+        alive = false;
     }
 
     public Vector2 getPosition() {
@@ -72,5 +75,9 @@ public abstract class Entity {
 
     public boolean isFighting(){
         return state == State.FIGHTING;
+    }
+
+    public boolean isAlive(){
+        return alive;
     }
 }
