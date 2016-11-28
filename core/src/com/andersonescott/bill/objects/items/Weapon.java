@@ -10,8 +10,9 @@ public class Weapon extends Item{
 
     protected int dmg, manaRep, critChance, bonusHealth, healthRep, bonusMana;
     protected ArrayList<Move> moves;
+    protected String type, name;
 
-    public Weapon(int lvl, Rarity rarity, Texture image, int dmg, int manaRep, int critChance, int bonusHealth, int healthRep, int bonusMana){ //add more as they come
+    public Weapon(int lvl, Rarity rarity, String name, String type, Texture image, int dmg, int manaRep, int critChance, int bonusHealth, int healthRep, int bonusMana){ //add more as they come
         super(lvl, rarity, image);
         this.dmg = dmg;
         this.manaRep = manaRep;
@@ -19,7 +20,8 @@ public class Weapon extends Item{
         this.bonusHealth = bonusHealth;
         this.healthRep = healthRep;
         this.bonusMana = bonusMana;
-        init(bonusHealth, healthRep, bonusMana);
+        this.name = name;
+        this.type = type;
     }
 
     public int getDmg() {
@@ -44,9 +46,5 @@ public class Weapon extends Item{
 
     public int getBonusMana() {
         return bonusMana;
-    }
-
-    private void init(int bonusHealth, int healthRep, int bonusMana){
-        //TODO add name and move generator based on these stats and weapon type
     }
 }

@@ -14,6 +14,17 @@ public class Enemy extends Entity{
     protected ArrayList<Move> moves;
     protected Weapon weapon;
 
+    public Enemy(Vector2 position, String type, int health, int mana, int healthRep, int manaRep, Move[] moves, Weapon weapon){
+        super(position);
+        this.type = type;
+        this.health = health;
+        this.mana = mana;
+        this.healthRep = healthRep;
+        this.manaRep = manaRep;
+        this.moves = new ArrayList<Move>(Arrays.asList(moves));
+        this.weapon = weapon;
+    }
+
     public Enemy(Vector2 position, String type){
         super (position);
         this.type = type;
@@ -27,7 +38,10 @@ public class Enemy extends Entity{
             healthRep = ;
             manaRep = ;
             moves = new ArrayList<Move>(Arrays.asList(new Move[] { }));
-            weapon = //WeaponFactory.makeRandom(String type)
+            weapon = ;//WeaponFactory.makeRandom(String type)
+        }
+        else if (type.equals("")){
+
         }
     }
 }

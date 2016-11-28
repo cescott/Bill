@@ -23,6 +23,19 @@ public abstract class Entity {
     public void update(float delta){
         velocity.add(acceleration.scl(delta));
         position.add(velocity);
+        if (!(velocity.isZero())){
+            state = State.MOVING;
+        }
+        if (velocity.isZero()){
+            state = State.IDLING;
+        }
+        if (health <= 0){
+            this.die();
+        }
+    }
+
+    public void die(){
+
     }
 
     public Vector2 getPosition() {
