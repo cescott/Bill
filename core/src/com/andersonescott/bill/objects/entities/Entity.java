@@ -1,12 +1,15 @@
 package com.andersonescott.bill.objects.entities;
 
+import com.andersonescott.bill.objects.items.Weapon;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity {
 
     protected Vector2 position, velocity, acceleration;
 
-    protected int health, mana, healthRep, manaRep;
+    protected int health, mana, healthRep, manaRep, lvl;
+
+    protected Weapon equipedWep;
 
     protected boolean alive;
 
@@ -51,6 +54,26 @@ public abstract class Entity {
 
     public Vector2 getAcceleration() {
         return acceleration;
+    }
+
+    public int getHealth() {
+        return (int)(health * Math.pow(1.1, lvl -1) + equipedWep.getBonusHealth());
+    }
+
+    public int getHealthRep() {
+        return (int)(healthRep * Math.pow(1.1, lvl -1) + equipedWep.getHealthRep());
+    }
+
+    public int getMana() {
+        return (int)(mana * Math.pow(1.1, lvl -1) + equipedWep.getBonusMana());
+    }
+
+    public int getManaRep() {
+        return (int)(manaRep * Math.pow(1.1, lvl -1) + equipedWep.getManaRep());
+    }
+
+    public int getLvl() {
+        return lvl;
     }
 
     public void setPosition(Vector2 position){
