@@ -1,5 +1,7 @@
 package com.andersonescott.bill.objects.items;
 
+import com.badlogic.gdx.graphics.Texture;
+
 import java.util.ArrayList;
 
 public class WeaponFactory {
@@ -7,7 +9,7 @@ public class WeaponFactory {
     protected String[] sword = {
             "Swanky",
             "S-s-s-",
-            "Slippy",
+            "Slippery",
             "Serpent",
             "Silly",
             "Super",
@@ -16,15 +18,37 @@ public class WeaponFactory {
             "Stabby",
             "Purple",
             "Sonofa",
-            "Sparkle"
-    };
-    protected String[] dagger = {
+            "Sparkle",
 
     };
+    protected String[] dagger = {
+            "D-d-d-",
+            "Dagger",
+            "Purple",
+            "Dingle",
+            "Dongle",
+            "Didgeri",
+            
+    };
     protected String[] staff = {
+            "Swanky",
+            "S-s-s-",
+            "Slippery",
+            "Serpent",
+            "Silly",
+            "Super",
+            "Stabby",
+            "Purple",
+            "Sonofa",
+            "Sparkle",
+            "Staff",
 
     };
     protected String[] hammer = {
+            "Hella",
+            "Hhhh",
+            "Hammer",
+            "Purple",
 
     };
     protected static ArrayList<String> swordNames;
@@ -160,6 +184,8 @@ public class WeaponFactory {
         int damage = (int)(dmgPercent*rarityScale*levelScale*30);
         int critChance = (int)(critPercent*100);
         int manaRep = (int)(manaRepPercent*rarityScale*levelScale*30);
+
+        Texture image =  new Texture("badlogic.jpg");
 
         return new Weapon(level, rarity, name, type, image, damage, manaRep, critChance, bonusHealth, healthRep, bonusMana);
     }
