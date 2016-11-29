@@ -16,6 +16,7 @@ public class WeaponFactory {
             "Stabby",
             "Purple",
             "Sonofa",
+            "Sparkle"
     };
     protected String[] dagger = {
 
@@ -32,10 +33,12 @@ public class WeaponFactory {
     protected static ArrayList<String> hammerNames;
 
     protected String[] effects = {
-            "Power",
-            "Mana",
-            "Health",
-            "HealthRep"
+            "Power",    "Power",    "Power",
+            "Mana",     "Mana",     "Mana",     "Mana",     "Mana",     "Mana",
+            "Health",   "Health",   "Health",   "Health",   "Health",
+            "HealthRep",
+            "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",
+            "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"
     };
 
     public WeaponFactory() {
@@ -57,28 +60,37 @@ public class WeaponFactory {
         int level;
         String type;
         String name;
+        int bonusHealth = 0;
+        int healthRep = 0;
+        int bonusMana = 0;
         int rare = (int)(Math.random() * 100);
         Item.Rarity rarity;
-
+        double rarityScale = 1;
 
         if (playerLvl > 2) {
-            level = playerLvl + (int) (Math.random() * 4) - 2;
+            level = playerLvl + (int) (Math.random() * 5) - 2;
         }
         else {
             level = playerLvl;
         }
 
+        double levelScale = Math.pow(1.1, (level-1));
+
         if (rare >= 98) {
             rarity = Item.Rarity.LEGENDARY;
+            rarityScale = 1.6;
         }
         else if (rare >= 85) {
             rarity = Item.Rarity.RARE;
+            rarityScale = 1.25;
         }
         else if (rare >= 50) {
             rarity = Item.Rarity.UNCOMMON;
+            rarityScale = 1.1;
         }
         else {
             rarity = Item.Rarity.COMMON;
+            rarityScale = 1;
         }
 
         int dmgInt = (int)(Math.random()*80) + 20;
@@ -126,11 +138,29 @@ public class WeaponFactory {
             }
         }
 
-        String effect = effects[(int)(Math.random()*4)];
+        String effect = effects[(int)(Math.random()*effects.length)];
 
         if (effect.equals("Power")) {
+            dmgPercent += .1;
+            name = "Extra pokey " + name;
+        }
+        else if (effect.equals("Mana")) {
+            bonusMana = (int)(30 * levelScale * rarityScale);
+            name = "Sparkly " + name;
+        }
+        else if (effect.equals("Health")) {
+            bonusHealth = (int)(15 * levelScale * rarityScale);
+            name = name + " of Gains";
+        }
+        else if (effect.equals("HealthRep")) {
+            healthRep = (int) (2.5 * levelScale * rarityScale);
+            name = "Overpowered " + name;
+        }
 
+        int damage = (int)(dmgPercent*rarityScale*levelScale*30);
+        int critChance = (int)(critPercent*100);
+        int manaRep = (int)(manaRepPercent*rarityScale*levelScale*30);
 
-        return new Weapon(level, rarity, image, );
+        return new Weapon(level, rarity, name, type, image, damage, manaRep, critChance, bonusHealth, healthRep, bonusMana);
     }
 }

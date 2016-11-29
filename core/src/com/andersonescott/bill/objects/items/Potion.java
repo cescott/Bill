@@ -13,6 +13,10 @@ public class Potion extends Item {
     public Potion(int lvl, Rarity rarity, Texture image, String type) {
         super(lvl, rarity, image);
 
+        if (lvl >= 2) {
+            lvl = (int) (Math.random() * 3) + lvl - 1;
+        }
+
         if (rarity == Rarity.COMMON) {
             rarityScale = 1;
         }
