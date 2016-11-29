@@ -40,6 +40,9 @@ public class GameWorld {
     public void update(float delta){
         for (int i=0; i<entities.size();i++){
             entities.get(i).update(delta);
+            if (!entities.get(i).isAlive()){
+                entities.remove(i);
+            }
         }
     }
 }
