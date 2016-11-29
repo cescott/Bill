@@ -1,7 +1,9 @@
 package com.andersonescott.bill.objects.entities;
 
 
+import com.andersonescott.bill.gameworld.assetMethods.AssetsLoader;
 import com.andersonescott.bill.objects.items.Item;
+import com.andersonescott.bill.objects.items.Weapon;
 import com.badlogic.gdx.math.Vector2;
 
 
@@ -21,7 +23,10 @@ public class Player extends Entity {
         manaRep = 0; // these values might change after play testing
         xp = 0;
         money = 0; //for now
+        Weapon wep = new Weapon(1, Item.Rarity.COMMON, "Basic Sword", "Sword", AssetsLoader.basicSword, 10, 10, 10, 0, 0, 0);
         inventory = new ArrayList<Item>();
+        inventory.add(wep);
+        equipedWep = wep;
     }
 
     @Override

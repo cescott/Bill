@@ -13,6 +13,9 @@ public class AssetsLoader {
     public static int idleFrames, movingFrames, fightingFrames;
     public static Animation idling, movement, combat;
 
+    //item assets
+    public static Texture basicSword;
+
     public static void load(){
         //---------------PLAYER---------------//
         player = new Texture("bill.png");
@@ -37,7 +40,7 @@ public class AssetsLoader {
         combat = new Animation(0.06f, fighting);
 
         //---------------ITEMS---------------//
-
+        basicSword = new Texture("basicSword.png");
         //---------------BACKGROUNDS---------------//
 
         //---------------HUD---------------//

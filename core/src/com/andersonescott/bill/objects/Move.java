@@ -7,7 +7,7 @@ public class Move {
 
     protected int damageMod, manaDrain;
     protected double lifesteal;
-    protected String name, type;
+    protected String type;
 
     public Move(Entity entity){ //creates random move with mana drain scaled to the entity's mana
         int random = (int)(Math.random()*100);
