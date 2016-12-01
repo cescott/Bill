@@ -32,7 +32,8 @@ public class Enemy extends Entity{
         init(type);
     }
 
-    private void init(String type){ //generates a random enemy based on its type
+    private void init(String type) { //generates a random enemy based on its type
+        /*
         if (type.equals("")){
             health = ;
             mana = ;
@@ -44,6 +45,7 @@ public class Enemy extends Entity{
         else if (type.equals("")){
 
         }
+        */
     }
     @Override
     public void die(){
