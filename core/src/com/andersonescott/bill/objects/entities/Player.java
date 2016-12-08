@@ -27,6 +27,7 @@ public class Player extends Entity {
         inventory = new ArrayList<Item>();
         inventory.add(wep);
         equipedWep = wep;
+        type = "player";
     }
 
     @Override

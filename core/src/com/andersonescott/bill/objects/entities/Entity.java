@@ -15,6 +15,8 @@ public abstract class Entity {
 
     protected State state;
 
+    protected String type;
+
     public enum State{
         IDLING, MOVING, FIGHTING
     }
@@ -102,5 +104,9 @@ public abstract class Entity {
 
     public boolean isAlive(){
         return alive;
+    }
+
+    public String getType(){
+        return type;
     }
 }

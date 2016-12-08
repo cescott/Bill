@@ -11,9 +11,10 @@ public class GameWorld {
     protected ArrayList<Entity> entities;
     protected Player player;
     protected GameState gameState;
+    protected boolean paused;
 
     public enum GameState {
-        READY, PAUSED, RUNNING, COMBAT  //add more as needed
+        READY, RUNNING, COMBAT  //add more as needed
     }
 
     public GameWorld(){
@@ -26,7 +27,7 @@ public class GameWorld {
     }
 
     public boolean isPaused(){
-        return gameState == GameState.PAUSED;
+        return paused;
     }
 
     public boolean isRunning(){
@@ -38,11 +39,17 @@ public class GameWorld {
     }
 
     public void update(float delta){
-        for (int i = 0; i < entities.size(); i++) {
-            entities.get(i).update(delta);
-            if (!entities.get(i).isAlive()) {
-                entities.remove(i);
+        if (!paused) {
+            for (int i = 0; i < entities.size(); i++) {
+                entities.get(i).update(delta);
+                if (!entities.get(i).isAlive()) {
+                    entities.remove(i);
+                }
             }
         }
+    }
+
+    public ArrayList<Entity> getEntities(){
+        return entities;
     }
 }
