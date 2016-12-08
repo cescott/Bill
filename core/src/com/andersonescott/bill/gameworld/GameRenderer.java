@@ -63,16 +63,30 @@ public class GameRenderer {
             tempPos = entities.get(i).getPosition();
             if (entities.get(i).getType().equals("player")){
                 if (entities.get(i).isIdle()) {
-                    batch.draw(AssetsLoader.idling.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
+                    batch.draw(AssetsLoader.playerIdling.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
                 }
                 else if (entities.get(i).isMoving()) {
-                    batch.draw(AssetsLoader.movement.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
+                    batch.draw(AssetsLoader.playerMoving.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
                 }
+            }
+            else if (entities.get(i).getType().equals("tallgrass")){
+                //batch.draw(AssetsLoader.tallgrass, tempPos.x, tempPos.y);
             }
         }
     }
 
     public void combatRender(float runtime){
-
+        //batch.draw(AssetsLoader.combatBackground)
+        for (int i=0;i<entities.size();i++){
+            tempPos = entities.get(i).getPosition();
+            if (entities.get(i).getType().equals("player")){
+                if (entities.get(i).isIdle()){
+                    batch.draw(AssetsLoader.playerIdling.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
+                }
+                else if (entities.get(i).isFighting()){
+                    batch.draw(AssetsLoader.playerFighting.getKeyFrame(runtime, true), tempPos.x, tempPos.y);
+                }
+            }
+        }
     }
 }

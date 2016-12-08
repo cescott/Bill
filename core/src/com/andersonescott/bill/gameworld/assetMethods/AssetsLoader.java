@@ -8,10 +8,10 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class AssetsLoader {
 
     //player assets
-    public static Texture player;
-    public static TextureRegion[] idle, moving, fighting;
-    public static int idleFrames, movingFrames, fightingFrames;
-    public static Animation idling, movement, combat;
+    private static Texture player;
+    private static TextureRegion[] idle, moving, fighting;
+    private static int idleFrames, movingFrames, fightingFrames;
+    public static Animation playerIdling, playerMoving, playerFighting;
 
     //item assets
     public static Texture basicSword;
@@ -35,9 +35,9 @@ public class AssetsLoader {
             fighting[i] = new TextureRegion(player, 0, 0, 0, 0); //TODO make this move through the texture
         }
 
-        idling = new Animation(0.06f, idle);
-        movement = new Animation(0.06f, moving);
-        combat = new Animation(0.06f, fighting);
+        playerIdling = new Animation(0.06f, idle);
+        playerMoving = new Animation(0.06f, moving);
+        playerFighting = new Animation(0.06f, fighting);
 
         //---------------ITEMS---------------//
         basicSword = new Texture("basicSword.png");
