@@ -10,7 +10,9 @@ public class AssetsLoader {
     //player assets
     private static Texture player;
     private static TextureRegion[] idle, moving, fighting;
-    private static int idleFrames, movingFrames, fightingFrames;
+    public static final int idleFrames = 4;
+    public static final int movingFrames = 4;
+    public static final int fightingFrames = 4;
     public static Animation playerIdling, playerMoving, playerFighting;
 
     //item assets
