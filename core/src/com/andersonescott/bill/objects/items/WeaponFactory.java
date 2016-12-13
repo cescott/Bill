@@ -36,6 +36,7 @@ public class WeaponFactory {
             "Sonofa",
             "Sparkle",
             "Radish",
+            "Smol",
     };
     protected String[] dagger = {
             "D-d-d-",
@@ -58,12 +59,15 @@ public class WeaponFactory {
             "Sonofa",
             "Sparkle",
             "Staff",
+            "Smol",
     };
     protected String[] hammer = {
             "Hella",
             "Hhhh",
             "Hammer",
             "Purple",
+            "Yuuge",
+
     };
     protected static ArrayList<String> swordNames;
     protected static ArrayList<String> daggerNames;
