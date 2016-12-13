@@ -44,22 +44,13 @@ public class Enemy extends Entity{
             manaRep = ;
             moves = new ArrayList<Move>(Arrays.asList(new Move[] { }));
             equipedWep = ;//WeaponFactory.makeRandom(String type)
-            texture = AssetsLoader.texture;
+            idling = Assetsloader.idling;
+            combat = Assetsloader.combat;
         }
         else if (type.equals("")){
 
         }
         */
-        TextureRegion[] tempIdle = new TextureRegion[AssetsLoader.idleFrames];
-        TextureRegion[] tempCombat = new TextureRegion[AssetsLoader.fightingFrames];
-        for (int i=0; i< AssetsLoader.idleFrames;i++){
-            tempIdle[i] = new TextureRegion(texture, 0, 0, 0, 0);
-        }
-        for (int i=0; i< AssetsLoader.fightingFrames;i++){
-            tempCombat[i] = new TextureRegion(texture, 0, 0, 0, 0);
-        }
-        idling = new Animation(0.06f, tempIdle);
-        combat = new Animation(0.06f, tempCombat);
     }
     @Override
     public void die(){
@@ -68,9 +59,5 @@ public class Enemy extends Entity{
             //drop weapon
         }
         //drop gold based on a function dependent on lvl
-    }
-
-    public Texture getTexture(){
-        return texture;
     }
 }

@@ -2,7 +2,6 @@ package com.andersonescott.bill.objects.entities;
 
 import com.andersonescott.bill.objects.items.Weapon;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity {
@@ -20,7 +19,6 @@ public abstract class Entity {
     protected String type;
 
     protected Texture texture;
-    protected Animation idling,combat;
 
     public enum State{
         IDLING, MOVING, FIGHTING
@@ -45,10 +43,6 @@ public abstract class Entity {
         if (health <= 0){
             this.die();
         }
-    }
-
-    public void draw(){
-
     }
 
     public void die(){

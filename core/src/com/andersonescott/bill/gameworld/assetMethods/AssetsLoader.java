@@ -10,9 +10,9 @@ public class AssetsLoader {
     //player assets
     private static Texture player;
     private static TextureRegion[] idle, moving, fighting;
-    public static final int idleFrames = 4;
-    public static final int movingFrames = 4;
-    public static final int fightingFrames = 4;
+    public static final int idleFrames = 4;//all idle animations will have this many frames
+    public static final int movingFrames = 4;//all movement animations will have this many frames
+    public static final int fightingFrames = 4;//all combat animations will have this many frames
     public static Animation playerIdling, playerMoving, playerFighting;
 
     //item assets
@@ -51,6 +51,7 @@ public class AssetsLoader {
     }
     public static void dispose(){
         player.dispose();
+        basicSword.dispose();
     }
 }
 
