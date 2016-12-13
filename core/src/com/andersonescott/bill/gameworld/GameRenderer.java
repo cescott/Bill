@@ -18,11 +18,18 @@ public class GameRenderer {
 
     private OrthographicCamera cam;
     private SpriteBatch batch;
-    private Vector2 tempPos;
 
     public GameRenderer(GameWorld world){
-        batch = new SpriteBatch();
         this.world = world;
+        cam = new OrthographicCamera();
+        cam.setToOrtho(true, 0, 0); //TODO the zeros are temp positions
+        batch = new SpriteBatch();
+        batch.setProjectionMatrix(cam.combined);
+        initAssets();
+    }
+
+    private void initAssets(){
+        //initiate all the textures, sound files, etc. required for the game rendering
     }
 
     public void render(float runtime){
@@ -32,7 +39,7 @@ public class GameRenderer {
 
         batch.begin();
 
-        if (world.isRunning()){//if the game is in the over world or is paused in the over world
+        if (world.isRunning()){
             overWorldRender(runtime);
         }
 
