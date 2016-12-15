@@ -46,6 +46,12 @@ public class WeaponFactory {
             "Dongle",
             "Didgeri",
             "Dad-",
+            "Duck",
+            "Diddly",
+            "Swagger",
+            "Mick",
+            "Bo",
+            "Radish",
     };
     protected String[] staff = {
             "Swanky",
@@ -67,7 +73,13 @@ public class WeaponFactory {
             "Hammer",
             "Purple",
             "Yuuge",
-
+            "Hodor",
+            "Slammer",
+            "Ham",
+            "Hand",
+            "Ram",
+            "Hog",
+            "Yam",
     };
     protected static ArrayList<String> swordNames;
     protected static ArrayList<String> daggerNames;
