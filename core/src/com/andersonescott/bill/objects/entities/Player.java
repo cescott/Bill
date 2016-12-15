@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Player extends Entity {
 
-    protected int xp, money;
+    protected int xp, money, encounterChance;
     protected ArrayList<Item> inventory;
 
     public Player(Vector2 position){
@@ -22,12 +22,41 @@ public class Player extends Entity {
         healthRep = 0;
         manaRep = 0; // these values might change after play testing
         xp = 0;
-        money = 0; //for now
+        money = 50000; //for now
+        encounterChance = 5;
         Weapon wep = new Weapon(1, Item.Rarity.COMMON, "Basic Sword", "Sword", AssetsLoader.basicSword, 10, 10, 10, 0, 0, 0);
         inventory = new ArrayList<Item>();
         inventory.add(wep);
         equipedWep = wep;
         type = "player";
+    }
+
+    public int getEncounterChance(){
+        return encounterChance;
+    }
+
+    public void resetEncounterChance(){
+        encounterChance = 5;
+    }
+
+    public void increaseEncounterChance(){
+        encounterChance += 5;
+    }
+
+    public int getXp(){
+        return xp;
+    }
+
+    public void modXp(int val){
+        xp += val;
+    }
+
+    public int getMoney(){
+        return money;
+    }
+
+    public void modMoney(int val){
+        money += val;
     }
 
     @Override

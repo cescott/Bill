@@ -1,6 +1,7 @@
-package com.andersonescott.bill.objects.terrain;
+package com.andersonescott.bill.objects.stages.terrain;
 
 
+import com.andersonescott.bill.objects.entities.Player;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -21,6 +22,14 @@ public class Terrain {
 
     public void update(float delta){
         position.add(scrollSpeed.scl(delta));
+    }
+
+    public void onCollision(Player player){
+
+    }
+
+    public void onPlayerExit(Player player){
+
     }
 
     public Vector2 getPosition() {
@@ -45,5 +54,16 @@ public class Terrain {
 
     public Rectangle getSurface() {
         return surface;
+    }
+
+    public void setScrollSpeed(Vector2 velocity){
+        scrollSpeed.set(velocity);
+    }
+    public void setScrollX(float x){
+        scrollSpeed.x = x;
+    }
+
+    public void setScrollY(float y){
+        scrollSpeed.y = y;
     }
 }

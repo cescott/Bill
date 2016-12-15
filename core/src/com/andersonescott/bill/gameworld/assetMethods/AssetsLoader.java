@@ -45,6 +45,8 @@ public class AssetsLoader {
         basicSword = new Texture("basicSword.png");
         //---------------BACKGROUNDS---------------//
 
+        //---------------Terrain---------------//
+
         //---------------HUD---------------//
 
         //---------------ENEMIES----------------//
