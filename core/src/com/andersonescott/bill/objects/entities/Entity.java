@@ -33,7 +33,7 @@ public abstract class Entity {
 
     public void update(float delta){
         velocity.add(acceleration.scl(delta));
-        position.add(velocity);
+        position.add(velocity.scl(delta));
         if (!(velocity.isZero())){
             state = State.MOVING;
         }
