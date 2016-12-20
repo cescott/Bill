@@ -12,25 +12,28 @@ public class TallGrass extends Terrain {
     }
 
     @Override
-    public void onCollision(Player player){
+    public boolean onCollision(Player player){
         if (!explored){
             int r = (int)(Math.random()*100);
             explored = true;
             if (r <= player.getEncounterChance()){
                 player.resetEncounterChance();
-                //start combat!!!
+                return true;
             }
             else {
                 player.increaseEncounterChance();
+                return false;
             }
         }
         else {
             explored = true;
+            return false;
         }
     }
 
     @Override
-    public void onPlayerExit(Player player){
+    public boolean onPlayerExit(Player player){
         explored = false; //this means that a player can walk in and out
-    }                     //of a single tall grass to increase encounter chance
+        return false;     //of a single tall grass to increase encounter chance
+    }
 }

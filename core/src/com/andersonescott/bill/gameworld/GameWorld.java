@@ -1,15 +1,17 @@
 package com.andersonescott.bill.gameworld;
 
 
-import com.andersonescott.bill.objects.entities.Entity;
+import com.andersonescott.bill.objects.entities.Enemy;
 import com.andersonescott.bill.objects.entities.Player;
-
-import java.util.ArrayList;
+import com.andersonescott.bill.objects.stages.StageManager;
+import com.andersonescott.bill.objects.stages.terrain.Terrain;
+import com.badlogic.gdx.math.Vector2;
 
 public class GameWorld {
 
-    protected ArrayList<Entity> entities;
+    protected Terrain[] terrain;
     protected Player player;
+    protected Enemy enemy;
     protected GameState gameState;
     protected boolean paused;
 
@@ -18,7 +20,8 @@ public class GameWorld {
     }
 
     public GameWorld(){
-        entities = new ArrayList<Entity>();
+        player = new Player(new Vector2(0, 0));//have these be the actual coords
+        terrain = StageManager.currentStage.getTerrain();
         gameState = GameState.READY;
     }
 
@@ -40,16 +43,19 @@ public class GameWorld {
 
     public void update(float delta){
         if (!paused) {
-            for (int i = 0; i < entities.size(); i++) {
-                entities.get(i).update(delta);
-                if (!entities.get(i).isAlive()) {
-                    entities.remove(i);
+            if (isRunning()){
+                //update player
+                player.update(delta);
+                //update terrain
+                for (int i = 0; i < terrain.length; i++) {
+                    terrain[i].update(delta);
                 }
             }
         }
     }
 
-    public ArrayList<Entity> getEntities(){
-        return entities;
+    public void startCombat(Enemy enemy){
+        this.enemy = enemy;
+        gameState = GameState.COMBAT;
     }
 }
