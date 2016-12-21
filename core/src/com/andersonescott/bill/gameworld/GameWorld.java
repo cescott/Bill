@@ -5,6 +5,7 @@ import com.andersonescott.bill.objects.entities.Enemy;
 import com.andersonescott.bill.objects.entities.Player;
 import com.andersonescott.bill.objects.stages.StageManager;
 import com.andersonescott.bill.objects.stages.terrain.Terrain;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
 
 public class GameWorld {
@@ -49,10 +50,43 @@ public class GameWorld {
                 //update terrain
                 for (int i = 0; i < terrain.length; i++) {
                     terrain[i].update(delta);
+                    collision(player, terrain[i]);
                 }
             }
         }
     }
+
+    public void collision(Player player, Terrain terrain){
+        if (player.getPosition().x > terrain.getPosition().x
+                || player.getPosition().x < terrain.getPosition().x+ terrain.getWidth()){
+            if (Intersector.overlaps(player.getHitbox(), terrain.getBody())
+                    || Intersector.overlaps(player.getHitbox(), terrain.getSurface())){
+                if ((player.getPosition().x + player.width> terrain.getPosition().x)
+                        &&(player.yIsBetween(terrain.getPosition().y, terrain.getPosition().y + terrain.getHeight()))){//if player hits from the right
+                    player.setPosition(terrain.getPosition().x, player.getPosition().y);
+                    player.setVelocity(0, player.getVelocity().y);
+                }
+                else if ((player.getPosition().x < terrain.getPosition().x + terrain.getWidth())
+                        &&(player.yIsBetween(terrain.getPosition().y, terrain.getPosition().y + terrain.getHeight()))){//if player hits from the left
+                    player.setPosition(terrain.getPosition().x + terrain.getWidth(), player.getPosition().y);
+                    player.setVelocity(0, player.getVelocity().y);
+                }
+                else if ((player.getPosition().y > terrain.getPosition().y + terrain.getWidth())
+                        &&(player.xIsBetween(terrain.getPosition().x, terrain.getPosition().x + terrain.getWidth()))){//if player hits from top
+                    player.setPosition(player.getPosition().x, terrain.getPosition().y + terrain.getHeight());
+                    player.setVelocity(player.getVelocity().x, 0);
+                }
+                else {//if player hits from bottom
+                    player.setPosition(player.getPosition().x, terrain.getPosition().y);
+                    player.setVelocity(player.getVelocity().x, 0);
+                }
+                if (terrain.eventOnCollision(player)){
+                    startCombat(StageManager.currentStage.getEnemey());
+                }
+            }
+        }
+    }
+
 
     public void startCombat(Enemy enemy){
         this.enemy = enemy;

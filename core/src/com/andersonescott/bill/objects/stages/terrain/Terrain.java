@@ -24,12 +24,12 @@ public class Terrain {
         position.add(scrollSpeed.scl(delta));
     }
 
-    public boolean eventOnCollision(Player player){
+    public boolean eventOnCollision(Player player){//this method should only return true if the method causes combat to start
         return false;
     }
 
-    public boolean eventOnPlayerExit(Player player){
-        return false;
+    public void eventOnPlayerExit(Player player){
+
     }
 
     public Vector2 getPosition() {
@@ -59,6 +59,7 @@ public class Terrain {
     public void setScrollSpeed(Vector2 velocity){
         scrollSpeed.set(velocity);
     }
+
     public void setScrollX(float x){
         scrollSpeed.x = x;
     }

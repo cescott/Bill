@@ -4,6 +4,7 @@ package com.andersonescott.bill.objects.entities;
 import com.andersonescott.bill.gameworld.assetMethods.AssetsLoader;
 import com.andersonescott.bill.objects.items.Item;
 import com.andersonescott.bill.objects.items.Weapon;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 
@@ -13,6 +14,8 @@ public class Player extends Entity {
 
     protected int xp, money, encounterChance;
     protected ArrayList<Item> inventory;
+    public static final int width = 100;//TODO decide on player height and width
+    public static final int height = 100;
 
     public Player(Vector2 position){
         super(position);
@@ -29,6 +32,7 @@ public class Player extends Entity {
         inventory.add(wep);
         equipedWep = wep;
         type = "player";
+        hitbox = new Rectangle(position.x, position.y, width, height);
     }
 
     public int getEncounterChance(){
@@ -57,6 +61,14 @@ public class Player extends Entity {
 
     public void modMoney(int val){
         money += val;
+    }
+
+    public boolean xIsBetween(float a, float b){
+        return (position.x > a && position.x < b)&&(position.x + width > a && position.x + width < b);
+    }
+
+    public boolean yIsBetween(float a, float b){
+        return (position.y > a && position.y < b)&&(position.y + height > a && position.y + height < b);
     }
 
     @Override

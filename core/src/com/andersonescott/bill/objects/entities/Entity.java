@@ -2,6 +2,7 @@ package com.andersonescott.bill.objects.entities;
 
 import com.andersonescott.bill.objects.items.Weapon;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity {
@@ -18,7 +19,7 @@ public abstract class Entity {
 
     protected String type;
 
-    protected Texture texture;
+    protected Rectangle hitbox;
 
     public enum State{
         IDLING, MOVING, FIGHTING
@@ -61,6 +62,10 @@ public abstract class Entity {
         return acceleration;
     }
 
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
+
     public int getHealth() {
         return (int)(health * Math.pow(1.1, lvl -1) + equipedWep.getBonusHealth());
     }
@@ -85,12 +90,12 @@ public abstract class Entity {
         this.lvl = lvl;
     }
 
-    public void setPosition(Vector2 position){
-        this.position = position;
+    public void setPosition(float x, float y){
+        position.set(x, y);
     }
 
-    public void setVelocity(Vector2 velocity){
-        this.velocity = velocity;
+    public void setVelocity(float x, float y){
+        velocity.set(x, y);
     }
 
     public void setAcceleration(Vector2 acceleration){

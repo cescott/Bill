@@ -32,8 +32,8 @@ public class TallGrass extends Terrain {
     }
 
     @Override
-    public boolean eventOnPlayerExit(Player player){
+    public void eventOnPlayerExit(Player player){
         explored = false; //this means that a player can walk in and out
-        return false;     //of a single tall grass to increase encounter chance
+                          //of a single tall grass to increase encounter chance
     }
 }

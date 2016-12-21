@@ -6,6 +6,7 @@ import com.andersonescott.bill.objects.entities.Enemy;
 import com.andersonescott.bill.objects.items.Weapon;
 import com.andersonescott.bill.objects.items.WeaponFactory;
 import com.andersonescott.bill.objects.stages.terrain.Terrain;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class StageManager {
@@ -24,7 +25,7 @@ public class StageManager {
                                         new Vector2(0,0), 0, "type"
                                 ),
                                 new Enemy(//enemy constructor variant 2 (for bosses and special enemies)
-                                        new Vector2(0, 0), "type", 0, 0, 0, 0, 0,
+                                        new Vector2(0, 0), new Rectangle(0, 0, 0, 0),"type", 0, 0, 0, 0, 0,
                                         new Move[] {
                                                 new Move (0, 0, 0)
                                         }, WeaponFactory.makeWeapon(0, "Sword")
@@ -41,7 +42,7 @@ public class StageManager {
                                         new Vector2(0,0), 0, "type"
                                 ),
                                 new Enemy(
-                                        new Vector2(0, 0), "type", 0, 0, 0, 0, 0,
+                                        new Vector2(0, 0), new Rectangle(0, 0, 0, 0), "type", 0, 0, 0, 0, 0,
                                         new Move[] {
                                                 new Move (0, 0, 0)
                                         }, WeaponFactory.makeWeapon(0, "Sword")
