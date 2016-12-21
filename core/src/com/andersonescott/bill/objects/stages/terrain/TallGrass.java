@@ -12,7 +12,7 @@ public class TallGrass extends Terrain {
     }
 
     @Override
-    public boolean onCollision(Player player){
+    public boolean eventOnCollision(Player player){
         if (!explored){
             int r = (int)(Math.random()*100);
             explored = true;
@@ -32,7 +32,7 @@ public class TallGrass extends Terrain {
     }
 
     @Override
-    public boolean onPlayerExit(Player player){
+    public boolean eventOnPlayerExit(Player player){
         explored = false; //this means that a player can walk in and out
         return false;     //of a single tall grass to increase encounter chance
     }

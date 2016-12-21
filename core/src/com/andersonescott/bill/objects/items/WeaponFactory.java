@@ -22,7 +22,7 @@ public class WeaponFactory {
     -
      */
 
-    protected String[] sword = {
+    protected static String[] sword = {
             "Swanky",
             "S-s-s-",
             "Slippery",
@@ -38,7 +38,7 @@ public class WeaponFactory {
             "Radish",
             "Smol",
     };
-    protected String[] dagger = {
+    protected static String[] dagger = {
             "D-d-d-",
             "Dagger",
             "Purple",
@@ -53,7 +53,7 @@ public class WeaponFactory {
             "Bo",
             "Radish",
     };
-    protected String[] staff = {
+    protected static String[] staff = {
             "Swanky",
             "S-s-s-",
             "Slippery",
@@ -67,7 +67,7 @@ public class WeaponFactory {
             "Staff",
             "Smol",
     };
-    protected String[] hammer = {
+    protected static String[] hammer = {
             "Hella",
             "Hhhh",
             "Hammer",
@@ -86,7 +86,7 @@ public class WeaponFactory {
     protected static ArrayList<String> staffNames;
     protected static ArrayList<String> hammerNames;
 
-    protected String[] effects = {
+    protected static String[] effects = {
             "Power",    "Power",    "Power",
             "Mana",     "Mana",     "Mana",     "Mana",     "Mana",     "Mana",
             "Health",   "Health",   "Health",   "Health",   "Health",
@@ -95,7 +95,7 @@ public class WeaponFactory {
             "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A"
     };
 
-    public WeaponFactory() {
+    public static void init() {
         for (int i = 0; i < sword.length; i++) {
             swordNames.add(sword[i]);
         }
@@ -110,7 +110,7 @@ public class WeaponFactory {
         }
     }
 
-    public Weapon makeWeapon(int playerLvl, String weaponType) {
+    public static Weapon makeWeapon(int playerLvl, String weaponType) {
         while (true) {
         int level;
         String type;

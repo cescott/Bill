@@ -24,11 +24,11 @@ public class Terrain {
         position.add(scrollSpeed.scl(delta));
     }
 
-    public boolean onCollision(Player player){
+    public boolean eventOnCollision(Player player){
         return false;
     }
 
-    public boolean onPlayerExit(Player player){
+    public boolean eventOnPlayerExit(Player player){
         return false;
     }
 

@@ -81,6 +81,10 @@ public abstract class Entity {
         return lvl;
     }
 
+    public void setLvl(int lvl){
+        this.lvl = lvl;
+    }
+
     public void setPosition(Vector2 position){
         this.position = position;
     }
